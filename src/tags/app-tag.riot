@@ -14,9 +14,10 @@
     .input {
       text-align: center;
       position: relative;
+      margin-top: 20px;
     }
     .input input {
-      width: 80%;
+      width: 90%;
       border-radius: 40px;
     }
     .input input:focus {
@@ -161,7 +162,9 @@
           // debugger
           if (domain !== '') {
             let req = new XMLHttpRequest();
-            req.open("GET", `https://logo.clearbit.com/${domain}`, true)
+            // req.open("GET", `https://logo.clearbit.com/${domain}`, true)
+            // <img src="https://img.logo.dev/google.com?token=pk_e1ID1mORQsmubAfDqApj-w" />
+            req.open("GET", `https://img.logo.dev/${domain}?token=pk_e1ID1mORQsmubAfDqApj-w`, true)
             req.responseType = "arraybuffer"
 
             req.onreadystatechange = () => {
