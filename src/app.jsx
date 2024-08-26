@@ -3,9 +3,12 @@ import { useState, useEffect } from 'preact/hooks'
 import ListItem from './list-item' // Assuming ListItem is a separate Preact component
 import './app.css'
 
+const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
+
 const App = () => {
   const [result, setResult] = useState([])
   const [domain, setDomain] = useState('')
+  const [newAPI, toggleNewAPI] = useState(false)
 
   useEffect(() => {
     document.getElementById('domain').focus()
@@ -17,43 +20,91 @@ const App = () => {
     document.getElementById('domain').focus()
   }
 
-  const search = (e) => {
+  // const search = (e) => {
+  //   const val = e.target.value
+  //   setDomain(val)
+
+  //   if (val !== '') {
+  //     const req = new XMLHttpRequest()
+  //     // let url = `https://autocomplete.clearbit.com/v1/companies/suggest?query=${val}`
+  //     let url = `https://search.logo.dev/?query=${val}`
+  //     req.open('GET', url, true)
+
+  //     req.onload = () => {
+  //       const json = JSON.parse(req.responseText)
+  //       setResult(json)
+  //     }
+
+  //     req.send(null)
+  //   } else {
+  //     setResult([])
+  //   }
+  // }
+
+  // const generate = (d) => {
+  //   if (d !== '') {
+  //     const req = new XMLHttpRequest()
+  //     // let url = `https://logo.clearbit.com/${d}`
+  //     let url = `https://img.logo.dev/${d}?token=${token}`
+  //     req.open('GET', url, true)
+  //     req.responseType = 'arraybuffer'
+
+  //     req.onreadystatechange = () => {
+  //       if (req.readyState === 4) {
+  //         if (req.status === 200) {
+  //           const imageArray = new Uint8Array(req.response)
+  //           parent.postMessage({ pluginMessage: { type: 'create-logo', imageArray } }, '*')
+  //         } else {
+  //           parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
+  //         }
+  //       }
+  //     }
+
+  //     req.send(null)
+  //   }
+  // }
+
+  const search = async (e) => {
     const val = e.target.value
     setDomain(val)
 
     if (val !== '') {
-      const req = new XMLHttpRequest()
-      req.open('GET', `https://autocomplete.clearbit.com/v1/companies/suggest?query=${val}`, true)
+      try {
+        // let url = `https://autocomplete.clearbit.com/v1/companies/suggest?query=${val}`
+        let url = newAPI ? `https://search.logo.dev/?query=${val}` : `https://autocomplete.clearbit.com/v1/companies/suggest?query=${val}`
+        const response = await fetch(url)
 
-      req.onload = () => {
-        const json = JSON.parse(req.responseText)
-        setResult(json)
+        if (response.ok) {
+          const json = await response.json()
+          setResult(json)
+        } else {
+          setResult([]) // Optional: Handle cases where the response is not OK
+        }
+      } catch (error) {
+        console.error('Error fetching suggestions:', error)
+        setResult([]) // Handle fetch error
       }
-
-      req.send(null)
     } else {
       setResult([])
     }
   }
 
-  const generate = (d) => {
+  const generate = async (d) => {
     if (d !== '') {
-      const req = new XMLHttpRequest()
-      req.open('GET', `https://logo.clearbit.com/${d}`, true)
-      req.responseType = 'arraybuffer'
+      try {
+        // let url = `https://logo.clearbit.com/${d}`
+        let url = newAPI ? `https://img.logo.dev/${d}?token=${token}` : `https://logo.clearbit.com/${d}`
+        const response = await fetch(url)
 
-      req.onreadystatechange = () => {
-        if (req.readyState === 4) {
-          if (req.status === 200) {
-            const imageArray = new Uint8Array(req.response)
-            parent.postMessage({ pluginMessage: { type: 'create-logo', imageArray } }, '*')
-          } else {
-            parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
-          }
+        if (response.ok) {
+          const imageArray = new Uint8Array(await response.arrayBuffer())
+          parent.postMessage({ pluginMessage: { type: 'create-logo', imageArray } }, '*')
+        } else {
+          parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
         }
+      } catch (error) {
+        parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
       }
-
-      req.send(null)
     }
   }
 
@@ -80,7 +131,12 @@ const App = () => {
       {result.length > 0 ? (
         <div className="container">
           {result.map((r) => (
-            <ListItem key={r.domain} {...r} onClick={() => itemClick(r)} />
+            <ListItem
+              key={r.domain}
+              {...r}
+              onClick={() => itemClick(r)}
+              url={newAPI ? `https://img.logo.dev/${r.domain}?token=${token}` : `https://logo.clearbit.com/${r.domain}`}
+            />
           ))}
         </div>
       ) : (
