@@ -1,0 +1,14 @@
+.logo {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #eee;
+}
+.card {
+  cursor: pointer;
+}
+.card:hover {
+  border: solid 1px var(--input-focus-color);
+}
