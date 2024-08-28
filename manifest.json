@@ -11,6 +11,7 @@
       "https://maxst.icons8.com",
       "https://cdnjs.cloudflare.com",
       "https://*.clearbit.com",
+      "https://api-js.mixpanel.com",
       "https://*.simpleanalyticscdn.com"
     ]
   }

@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import ListItem from './list-item' // Assuming ListItem is a separate Preact component
+import * as mixpanel from 'mixpanel-figma'
 import './app.css'
 
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
@@ -78,6 +79,7 @@ const App = () => {
           const json = await response.json()
           setResult(json)
           window.sa_event('search_domain', { value: val })
+          mixpanel.track('search_domain', { value: val })
         } else {
           setResult([]) // Optional: Handle cases where the response is not OK
         }
@@ -101,6 +103,7 @@ const App = () => {
           const imageArray = new Uint8Array(await response.arrayBuffer())
           parent.postMessage({ pluginMessage: { type: 'create-logo', imageArray } }, '*')
           window.sa_event('insert_logo', { domain: d })
+          mixpanel.track('insert_logo', { domain: d })
         } else {
           parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
         }

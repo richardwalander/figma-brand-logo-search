@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "mixpanel-figma": "^2.0.4",
     "preact": "^10.23.1",
-    "react-jss": "^10.10.0"
+    "react-jss": "^10.10.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.0",
