@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -44,6 +44,21 @@
 
 <body>
   <div id="app"></div>
+  <!-- 100% privacy-first analytics -->
+  <script>
+    function saLoaded() {
+      // Always check for the function before using it.
+      // The script might be blocked or not loaded for other reasons.
+      if (window.sa_pageview) {
+        window.sa_pageview('logofetch/home');
+        console.log('sa_pageview');
+      }
+    }
+  </script>
+  <script async defer data-auto-collect="false" onload="saLoaded()" data-hostname="logofetch.com"
+    src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?domain=logofetch.com" alt=""
+      referrerpolicy="no-referrer-when-downgrade" /></noscript>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

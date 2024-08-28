@@ -77,6 +77,7 @@ const App = () => {
         if (response.ok) {
           const json = await response.json()
           setResult(json)
+          window.sa_event('search_domain', { value: val })
         } else {
           setResult([]) // Optional: Handle cases where the response is not OK
         }
@@ -99,6 +100,7 @@ const App = () => {
         if (response.ok) {
           const imageArray = new Uint8Array(await response.arrayBuffer())
           parent.postMessage({ pluginMessage: { type: 'create-logo', imageArray } }, '*')
+          window.sa_event('insert_logo', { domain: d })
         } else {
           parent.postMessage({ pluginMessage: { type: 'error' } }, '*')
         }
