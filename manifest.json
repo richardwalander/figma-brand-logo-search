@@ -6,5 +6,12 @@
   "ui": "dist/index.html",
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
-  "networkAccess": { "allowedDomains": ["https://maxst.icons8.com", "https://cdnjs.cloudflare.com", "https://*.clearbit.com"] }
+  "networkAccess": {
+    "allowedDomains": [
+      "https://maxst.icons8.com",
+      "https://cdnjs.cloudflare.com",
+      "https://*.clearbit.com",
+      "https://*.simpleanalyticscdn.com"
+    ]
+  }
 }
