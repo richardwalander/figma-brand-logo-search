@@ -19,6 +19,7 @@ window.onmessage = (event) => {
     const uuid = event.data.pluginMessage.uuid
     console.log('Received UUID:', uuid)
     mixpanel.identify(uuid)
+    mixpanel.track('plugin_open')
     // Do something with the UUID in the UI, e.g., display it
   }
 }
