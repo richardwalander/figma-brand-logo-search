@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "watch": "vite build --watch && vite build --watch --config vite.lib.config.js ",
-    "build": "vite build --config vite.lib.config.js && vite build",
+    "watch:ui": "vite build --watch",
+    "watch:code": "vite build --watch --config vite.lib.config.js ",
+    "watch": "concurrently \"yarn run watch:ui\" \"yarn run watch:code\"",
+    "build:ui": "vite build",
+    "build:code": "vite build --config vite.lib.config.js",
+    "build": "concurrently \"yarn run build:ui\" \"yarn run build:code\"",
     "preview": "vite preview"
   },
   "dependencies": {

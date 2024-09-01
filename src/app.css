@@ -3,6 +3,10 @@
   height: 100vh;
   overflow: hidden;
 }
+.container {
+  max-height: 390px;
+  overflow-y: scroll;
+}
 .bar {
   position: absolute;
   bottom: 0;
