@@ -8,13 +8,10 @@ const ListItem = ({ logo, name, domain, onClick, url }) => {
     <div className="card fluid" onClick={onClick}>
       <div className="section row">
         <div className="col-sm-2">
-          {/* <div className="logo rounded" style={`background-image: url(${logo})`}></div> */}
-          {/* <div className="logo rounded" style={`background-image: url(https://img.logo.dev/${domain}?token=${token})`}></div> */}
           <div className="logo rounded" style={`background-image: url(${url})`}></div>
         </div>
         <div className="col-sm-10">
-          <strong>{name}</strong>
-          <br />
+          <strong className="name">{name}</strong>
           <span>{domain}</span>
         </div>
       </div>

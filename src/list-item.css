@@ -12,3 +12,12 @@
 .card:hover {
   border: solid 1px var(--input-focus-color);
 }
+.name {
+  display: block;
+  height: 20px; /* Adjust this value as needed */
+  line-height: 20px; /* Match this with the height for vertical centering */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%; /* Adjust as needed */
+}

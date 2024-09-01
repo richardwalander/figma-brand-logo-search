@@ -21,6 +21,7 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       outDir: 'dist', // Output directory for the standalone JS file
+      emptyOutDir: false,
       // watch: true,
     },
     define: {
