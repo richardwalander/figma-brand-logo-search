@@ -16,7 +16,7 @@ const ListItem = ({ logo, name, domain, onClick }) => {
     >
       <div className="section row">
         <div className="col-sm-2">
-          <div className="logo rounded" style={`background-image: url(https://img.logo.dev/${domain}?token=${token}`}></div>
+          <div className="logo circular" style={`background-image: url(https://img.logo.dev/${domain}?token=${token}`}></div>
         </div>
         <div className="col-sm-10">
           <strong className="name">{name}</strong>

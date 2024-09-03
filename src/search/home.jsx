@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import { useParams } from 'wouter-preact'
-import ListItem from './list-item' // Assuming ListItem is a separate Preact component
+import ListItem from '../components/listitem/list-item' // Assuming ListItem is a separate Preact component
 import * as mixpanel from 'mixpanel-figma'
 import './home.css'
-import SearchField from './components/searchfield/searchfield'
+import SearchField from '../components/searchfield/searchfield'
 
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 const secret = import.meta.env.VITE_LOGO_DEV_API_SECRET

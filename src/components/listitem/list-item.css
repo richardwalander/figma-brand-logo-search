@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: #eee;
+  border: solid 1px var(--card-border-color);
 }
 .card {
   cursor: pointer;
@@ -20,4 +21,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%; /* Adjust as needed */
+}
+.section {
+  align-items: center;
 }

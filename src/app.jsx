@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { Router, Route, Switch, Redirect } from 'wouter-preact'
 import { useHashLocation } from 'wouter-preact/use-hash-location'
-import Home from './home.jsx'
+import Home from './search/home.jsx'
 import TabBar from './components/tabbar/tabbar.jsx'
 import Explore from './explore/explore.jsx'
 import More from './more/more.jsx'
