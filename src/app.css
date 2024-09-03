@@ -1,75 +1,30 @@
-.app {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+:root {
+  --universal-border-radius: 4px;
+  --button-back-color: #fff;
+  --button-fore-color: #333;
+  --button-border-color: #333;
+  --button-hover-back-color: #fff;
+  --button-hover-fore-color: #333;
+  --button-hover-border-color: #333;
+  --input-focus-color: #18a0fb;
+  --card-back-color: var(--figma-color-bg);
+  --card-fore-color: var(--figma-color-text);
+  --card-border-color: var(--figma-color-border);
+  --input-back-color: var(--figma-color-bg);
+  --input-fore-color: var(--figma-color-text);
+  --input-border-color: var(--figma-color-border);
 }
-.container {
-  max-height: 390px;
-  overflow-y: scroll;
+
+button.primary {
+  --button-back-color: #18a0fb;
+  --button-border-color: #18a0fb;
+  --button-fore-color: #fff;
+  --button-hover-back-color: #18a0fb;
+  --button-hover-border-color: #18a0fb;
+  --button-hover-fore-color: #fff;
 }
-.bar {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: solid 1px #eee;
-  text-align: right;
-}
-.input {
-  text-align: center;
-  position: relative;
-  margin-top: 20px;
-}
-.input input {
-  width: 90%;
-  border-radius: 40px;
-}
-.input input:focus {
-  outline-color: rgba(255, 255, 255, 0);
-  outline-style: auto;
-  outline-width: 0;
-}
-.clearbit {
-  text-align: center;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 20px;
-  font-size: 12px;
-}
-.close {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 8%;
-  transform: translateY(-50%);
-  background-color: #ccc;
-  border-radius: 50%;
-  padding: 2px;
-}
-.la-times {
-  font-size: 20px;
-}
-.empty {
-  text-align: center;
-}
-.empty p,
-.empty h3 {
-  color: #999;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.icon {
-  background-color: #eee;
-  padding: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-top: 20%;
-}
-.svg {
-  margin-top: 20%;
-}
-.icon .la-search {
-  font-size: 64px;
-  color: #999;
+
+body {
+  background-color: var(--figma-color-bg);
+  color: var(--figma-color-text);
 }

@@ -1,0 +1,9 @@
+.category-list-item {
+}
+.category-list-item .row {
+  border: solid 1px var(--card-border-color);
+  padding: 10px 20px;
+  align-items: center;
+  margin: 5px;
+  /* border-radius: 4px; */
+}

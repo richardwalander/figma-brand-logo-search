@@ -1,0 +1,29 @@
+.input {
+  text-align: center;
+  position: relative;
+  padding: 0 10px;
+  /* margin-top: 20px; */
+}
+.input input {
+  /* width: 90%; */
+  width: 99%;
+  border-radius: 40px;
+}
+.input input:focus {
+  outline-color: rgba(255, 255, 255, 0);
+  outline-style: auto;
+  outline-width: 0;
+}
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  background-color: #ccc;
+  border-radius: 50%;
+  padding: 2px;
+}
+.la-times {
+  font-size: 20px;
+}

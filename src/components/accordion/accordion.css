@@ -1,0 +1,9 @@
+.accordion-title {
+  align-items: center;
+  /* padding: 5px 0; */
+  border-bottom: solid 1px var(--figma-color-border);
+}
+
+.accordion-content {
+  padding: 10px 0;
+}
