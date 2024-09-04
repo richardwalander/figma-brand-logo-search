@@ -1,4 +1,9 @@
-.explore-cat {
+.explore-cat .brands {
   max-height: 490px;
   overflow-y: scroll;
+}
+
+.explore-cat .header {
+  align-items: center;
+  margin-bottom: 10px;
 }

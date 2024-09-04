@@ -1,0 +1,10 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--figma-color-bg-hover);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  font-size: 24px;
+}

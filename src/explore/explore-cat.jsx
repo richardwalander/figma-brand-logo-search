@@ -3,6 +3,7 @@ import { useParams } from 'wouter-preact'
 import { useState } from 'preact/hooks'
 import ListItem from '../components/listitem/list-item'
 import './explore-cat.css'
+import BackButton from '../components/backbutton/backbutton'
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 
 const ExploreCategory = () => {
@@ -14,15 +15,19 @@ const ExploreCategory = () => {
   // const [exploreCategories, setCategories] = useState(categories)
   return (
     <div className="container explore-cat">
-      <div className="row">
-        <div className="col-sm-1">
-          <i className="la la-arrow-left"></i>
+      <div className="row header">
+        <div className="col-sm-2">
+          <BackButton></BackButton>
         </div>
-        <div className="col-sm">{category.name}</div>
+        <div className="col-sm">
+          <h5>
+            {category.icon} {category.name}
+          </h5>
+        </div>
       </div>
-      <div className="">
+      <div className="brands">
         {category.brands.map((r) => (
-          <ListItem key={r.domain} {...r} onClick={() => {}} url={`https://img.logo.dev/${r.domain}?token=${token}`} />
+          <ListItem key={r.domain} {...r} url={`https://img.logo.dev/${r.domain}?token=${token}`} />
         ))}
       </div>
     </div>

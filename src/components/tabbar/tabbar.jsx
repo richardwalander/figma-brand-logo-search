@@ -3,15 +3,17 @@ import { Link, useRoute } from 'wouter-preact'
 import './tabbar.css'
 
 const TabBar = () => {
-  const [isSearch, params] = useRoute('/search/:q')
-  return (
+  const [isSearch] = useRoute('/search/*?')
+  const [isExplore] = useRoute('/explore/*?')
+  const [isDetails] = useRoute('/details/*?')
+  return !isDetails ? (
     <div className="tab-bar">
       <div className="container">
         <div className="row">
-          <Link className={(active) => (active ? 'active tab-item' : 'tab-item')} href="/explore">
+          <Link className={() => (isExplore ? 'active tab-item' : 'tab-item')} href="/explore/">
             Explore
           </Link>
-          <Link className={(active) => (isSearch ? 'active tab-item' : 'tab-item')} href="/search">
+          <Link className={() => (isSearch ? 'active tab-item' : 'tab-item')} href="/search/">
             Search
           </Link>
           <Link className={(active) => (active ? 'active tab-item' : 'tab-item')} href="/more">
@@ -20,7 +22,7 @@ const TabBar = () => {
         </div>
       </div>
     </div>
-  )
+  ) : null
 }
 
 export default TabBar

@@ -1,13 +1,15 @@
 import { h } from 'preact'
+import { useLocation } from 'wouter-preact'
 import './list-item.css'
 import * as mixpanel from 'mixpanel-figma'
 
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 
-const ListItem = ({ logo, name, domain, onClick }) => {
+const ListItem = ({ logo, name, domain }) => {
+  const [location, setLocation] = useLocation()
   return (
     <div
-      className="card fluid"
+      className="list-item card fluid"
       onClick={() => {
         parent.postMessage({ pluginMessage: { type: 'create-logo', domain } }, '*')
         window.sa_event('insert_logo', { domain })
@@ -18,9 +20,21 @@ const ListItem = ({ logo, name, domain, onClick }) => {
         <div className="col-sm-2">
           <div className="logo circular" style={`background-image: url(https://img.logo.dev/${domain}?token=${token}`}></div>
         </div>
-        <div className="col-sm-10">
+        <div className="col-sm-8">
           <strong className="name">{name}</strong>
           <span>{domain}</span>
+        </div>
+        <div className="col-sm-2 last">
+          <div
+            className="more-btn circular"
+            onClick={(e) => {
+              console.log('Click more', domain)
+              e.stopPropagation()
+              setLocation(`/details/${domain}`)
+            }}
+          >
+            <i className="la la-ellipsis-v"></i>
+          </div>
         </div>
       </div>
     </div>

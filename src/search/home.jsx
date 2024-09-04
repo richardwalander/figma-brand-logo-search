@@ -52,7 +52,7 @@ const Home = () => {
       } else {
         setResult([])
       }
-    }, 500)
+    }, 1000)
   }
 
   // const generate = async (d) => {

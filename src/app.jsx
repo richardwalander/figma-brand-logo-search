@@ -7,6 +7,7 @@ import Explore from './explore/explore.jsx'
 import More from './more/more.jsx'
 import './app.css'
 import ExploreCategory from './explore/explore-cat.jsx'
+import Details from './details/details.jsx'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/explore/:cat" component={ExploreCategory} />
           <Route path="/explore" component={Explore} />
           <Route path="/more" component={More} />
+          <Route path="/details/:domain" component={Details} />
           <Route path="/">
             <Redirect to="/explore" replace></Redirect>
           </Route>
