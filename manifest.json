@@ -6,6 +6,10 @@
   "ui": "dist/index.html",
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
+  "relaunchButtons": [
+    { "command": "edit", "name": "Replace Logo" },
+    { "command": "open", "name": "Open LogoFetch", "multipleSelection": true }
+  ],
   "networkAccess": {
     "allowedDomains": [
       "https://maxst.icons8.com",

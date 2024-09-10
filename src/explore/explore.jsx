@@ -9,6 +9,7 @@ const Explore = () => {
   const { categories } = window.pluginConfig
   const [exploreCategories, setCategories] = useState(categories)
   const [location, setLocation] = useLocation()
+  let searchTimer
   return (
     <div id="explore">
       <div className="container">
@@ -16,8 +17,11 @@ const Explore = () => {
           <SearchField
             domain={''}
             onSearch={(e) => {
-              const val = e.target.value
-              setLocation(`/search/${val}`)
+              clearTimeout(searchTimer)
+              searchTimer = setTimeout(() => {
+                const val = e.target.value
+                setLocation(`/search/${val}`)
+              }, 1000)
             }}
           ></SearchField>
         </div>

@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
-import { useParams } from 'wouter-preact'
+import { useLocation } from 'wouter-preact'
 import ListItem from '../components/listitem/list-item' // Assuming ListItem is a separate Preact component
 import * as mixpanel from 'mixpanel-figma'
 import './home.css'
@@ -9,16 +9,20 @@ import SearchField from '../components/searchfield/searchfield'
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 const secret = import.meta.env.VITE_LOGO_DEV_API_SECRET
 
-const Home = () => {
-  const { q } = useParams()
+const Home = ({ params }) => {
+  // const { q } = useParams()
+  const q = decodeURIComponent(params.q)
   const [result, setResult] = useState([])
-  const [domain, setDomain] = useState(q || '')
+  const [domain, setDomain] = useState('')
+  const [, setLocation] = useLocation()
   let searchTimer
-  // if (q !== '') {
-  //   parent.postMessage({ pluginMessage: { type: 'search-logo', query: q } }, '*')
-  // }
 
   useEffect(() => {
+    console.log('search', params)
+    if (params.hasOwnProperty('q')) {
+      setDomain(q)
+      parent.postMessage({ pluginMessage: { type: 'search-logo', query: q } }, '*')
+    }
     document.getElementById('domain').focus()
     window.onmessage = (event) => {
       const msg = event.data.pluginMessage
@@ -49,6 +53,7 @@ const Home = () => {
         parent.postMessage({ pluginMessage: { type: 'search-logo', query: val } }, '*')
         window.sa_event('search_domain', { value: val })
         mixpanel.track('search_domain', { value: val })
+        setLocation(`/search/${encodeURIComponent(val)}`)
       } else {
         setResult([])
       }

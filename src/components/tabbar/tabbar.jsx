@@ -13,7 +13,7 @@ const TabBar = () => {
           <Link className={() => (isExplore ? 'active tab-item' : 'tab-item')} href="/explore/">
             Explore
           </Link>
-          <Link className={() => (isSearch ? 'active tab-item' : 'tab-item')} href="/search/">
+          <Link className={() => (isSearch ? 'active tab-item' : 'tab-item')} href="/search">
             Search
           </Link>
           <Link className={(active) => (active ? 'active tab-item' : 'tab-item')} href="/more">
