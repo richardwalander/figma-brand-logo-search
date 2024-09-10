@@ -11,9 +11,9 @@ const ListItem = ({ logo, name, domain }) => {
     <div
       className="list-item card fluid"
       onClick={() => {
-        parent.postMessage({ pluginMessage: { type: 'create-logo', domain } }, '*')
+        parent.postMessage({ pluginMessage: { type: 'create-logo', domain, format: 'png', greyscale: false, size: 128 } }, '*')
         window.sa_event('insert_logo', { domain })
-        mixpanel.track('insert_logo', { domain })
+        mixpanel.track('insert_logo', { domain, location: 'search' })
       }}
     >
       <div className="section row">
