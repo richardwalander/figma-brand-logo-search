@@ -3,7 +3,13 @@ import './colortile.css'
 
 const ColorTile = ({ color }) => {
   return (
-    <div className="color-tile rounded" style={`background-color:${color.hex};`}>
+    <div
+      className="color-tile rounded"
+      style={`background-color:${color.hex};`}
+      onClick={() => {
+        parent.postMessage({ pluginMessage: { type: 'create-color', color } }, '*')
+      }}
+    >
       <span className="label" style={`color: ${getContrastColor(color.hex)};`}>
         {color.hex.toUpperCase()}
       </span>
