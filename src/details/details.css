@@ -24,3 +24,9 @@
   white-space: nowrap;
   max-width: 100%; /* Adjust as needed */
 }
+
+.details .loading {
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}

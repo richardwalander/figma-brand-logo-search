@@ -724,6 +724,11 @@ color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
+color.js@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/color.js/-/color.js-1.2.0.tgz#18d9f55545111730d25ccf18ea8b6933c71440d7"
+  integrity sha512-0ajlNgWWOR7EK9N6l2h0YKsZPzMCLQG5bheCoTGpGfhkR8tB5eQNItdua1oFHDTeq9JKgSzQJqo+Gp3V/xW+Lw==
+
 concurrently@^8.2.2:
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-8.2.2.tgz#353141985c198cfa5e4a3ef90082c336b5851784"
@@ -914,6 +919,11 @@ estree-walker@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
+
+extract-colors@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/extract-colors/-/extract-colors-4.0.8.tgz#b5556d96b7e937b23676b5ca5aed3f64711d82ac"
+  integrity sha512-XW6Ee9bgdx4Z9GchZm2likadze+BjQG1orkSyfxjd9znvxxtc7UBHf//1lFMtQm+lDusO3Fz8giaok0LWyflOA==
 
 fill-range@^7.1.1:
   version "7.1.1"
