@@ -22,6 +22,7 @@ const Home = ({ params }) => {
     if (params.hasOwnProperty('q')) {
       setDomain(q)
       parent.postMessage({ pluginMessage: { type: 'search-logo', query: q } }, '*')
+      mixpanel.track('search_domain', { value: q })
     }
     document.getElementById('domain').focus()
     window.onmessage = (event) => {

@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import * as mixpanel from 'mixpanel-figma'
 import './colortile.css'
 
 const ColorTile = ({ color }) => {
@@ -8,6 +9,7 @@ const ColorTile = ({ color }) => {
       style={`background-color:${color.hex};`}
       onClick={() => {
         parent.postMessage({ pluginMessage: { type: 'create-color', color } }, '*')
+        mixpanel.track('insert_color')
       }}
     >
       <span className="label" style={`color: ${getContrastColor(color.hex)};`}>
