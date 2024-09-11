@@ -1,0 +1,19 @@
+#promobar {
+  position: fixed;
+  bottom: 10px;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--figma-color-bg-hover);
+  padding: 10px;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--figma-color-text);
+  }
+}

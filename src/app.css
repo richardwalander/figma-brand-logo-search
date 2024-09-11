@@ -13,6 +13,8 @@
   --input-back-color: var(--figma-color-bg);
   --input-fore-color: var(--figma-color-text);
   --input-border-color: var(--figma-color-border);
+  --container-max-height: 440px;
+  --container-padding-bottom: 60px;
 }
 
 button.primary {

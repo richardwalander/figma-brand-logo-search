@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useLocation } from 'wouter-preact'
+import { useAppState } from '../../context/appstate'
 import './list-item.css'
 import * as mixpanel from 'mixpanel-figma'
 
@@ -7,13 +8,15 @@ const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 
 const ListItem = ({ logo, name, domain }) => {
   const [location, setLocation] = useLocation()
+  const { data } = useAppState()
+  const { format, size, greyscale } = data.value
   return (
     <div
       className="list-item card fluid"
       onClick={() => {
-        parent.postMessage({ pluginMessage: { type: 'create-logo', domain, format: 'png', greyscale: false, size: 128 } }, '*')
+        parent.postMessage({ pluginMessage: { type: 'create-logo', domain, format, greyscale, size } }, '*')
         window.sa_event('insert_logo', { domain })
-        mixpanel.track('insert_logo', { domain, location: 'search' })
+        mixpanel.track('insert_logo', { domain })
       }}
     >
       <div className="section row">
@@ -30,6 +33,7 @@ const ListItem = ({ logo, name, domain }) => {
             onClick={(e) => {
               console.log('Click more', domain)
               e.stopPropagation()
+              mixpanel.track('view_details', { domain })
               setLocation(`/details/${domain}`)
             }}
           >

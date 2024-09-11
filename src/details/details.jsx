@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
+import { useAppState } from '../context/appstate'
 import { useParams } from 'wouter-preact'
 import BackButton from '../components/backbutton/backbutton'
 import './details.css'
@@ -13,6 +14,9 @@ const Details = () => {
   const [brand, setBrand] = useState()
   const [colors, setColors] = useState([])
   const { domain } = useParams()
+  const { data } = useAppState()
+  const { size } = data.value
+
   useEffect(() => {
     parent.postMessage({ pluginMessage: { type: 'get-details', domain } }, '*')
     window.onmessage = async (event) => {
@@ -56,7 +60,7 @@ const Details = () => {
   //     })
   // }, [brand])
   return (
-    <div className="container details">
+    <div id="details" className="container">
       <div className="row header">
         <div className="col-sm-2">
           <BackButton></BackButton>
@@ -79,15 +83,15 @@ const Details = () => {
           <Accordion title="Logotype variants">
             <div className="col-sm-12 row">
               <div className="col-sm-6">
-                <LogoTile domain={brand.domain} format="png"></LogoTile>
+                <LogoTile domain={brand.domain} format="png" size={size}></LogoTile>
               </div>
               <div className="col-sm-6">
-                <LogoTile domain={brand.domain} format="jpg"></LogoTile>
+                <LogoTile domain={brand.domain} format="jpg" size={size}></LogoTile>
               </div>
             </div>
             <div className="col-sm-12 row" style={{ paddingTop: 10 }}>
               <div className="col-sm-6">
-                <LogoTile domain={brand.domain} greyscale={true}></LogoTile>
+                <LogoTile domain={brand.domain} greyscale={true} size={size}></LogoTile>
               </div>
             </div>
           </Accordion>

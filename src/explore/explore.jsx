@@ -25,41 +25,23 @@ const Explore = () => {
             }}
           ></SearchField>
         </div>
-        <Accordion title="Categories">
-          {exploreCategories.map((cat) => (
-            <Link to={`/explore/${cat.id}`} asChild>
-              <div className="category-list-item col-sm-6">
-                <div className="row rounded">
-                  <div className="col-sm-2">{cat.icon}</div>
-                  <div className="col-sm">{cat.name}</div>
-                  <div className="col-sm-1">
-                    <i className="la la-angle-right"></i>
+        <div className="categories">
+          <Accordion title="Categories">
+            {exploreCategories.map((cat) => (
+              <Link to={`/explore/${cat.id}`} asChild>
+                <div className="category-list-item col-sm-6">
+                  <div className="row rounded">
+                    <div className="col-sm-2">{cat.icon}</div>
+                    <div className="col-sm">{cat.name}</div>
+                    <div className="col-sm-1">
+                      <i className="la la-angle-right"></i>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </Accordion>
-        {/* <div className="row">
-          <div className="col-sm">
-            <h4>Categories</h4>
-          </div>
+              </Link>
+            ))}
+          </Accordion>
         </div>
-        <div className="row">
-          {exploreCategories.map((cat) => (
-            <Link to={`/explore/${cat.id}`} asChild>
-              <div className="category-list-item col-sm-6">
-                <div className="row rounded">
-                  <div className="col-sm-2">{cat.icon}</div>
-                  <div className="col-sm">{cat.name}</div>
-                  <div className="col-sm-1">
-                    <i className="la la-angle-right"></i>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div> */}
       </div>
     </div>
   )

@@ -1,13 +1,21 @@
-.category-list-item {
-  cursor: pointer;
-}
-.category-list-item .row {
-  border: solid 1px var(--card-border-color);
-  padding: 10px 20px;
-  align-items: center;
-  margin: 5px;
-  /* border-radius: 4px; */
-}
-.category-list-item .row:hover {
-  border: solid 1px var(--input-focus-color);
+#explore {
+  .category-list-item {
+    cursor: pointer;
+    .row {
+      border: solid 1px var(--card-border-color);
+      padding: 10px 20px;
+      align-items: center;
+      margin: 5px;
+      /* border-radius: 4px; */
+    }
+    .row:hover {
+      border: solid 1px var(--input-focus-color);
+    }
+  }
+
+  .categories {
+    max-height: var(--container-max-height);
+    padding-bottom: var(--container-padding-bottom);
+    overflow-y: scroll;
+  }
 }

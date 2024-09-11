@@ -14,7 +14,7 @@ const ExploreCategory = () => {
 
   // const [exploreCategories, setCategories] = useState(categories)
   return (
-    <div className="container explore-cat">
+    <div id="explore-cat" className="container">
       <div className="row header">
         <div className="col-sm-2">
           <BackButton></BackButton>

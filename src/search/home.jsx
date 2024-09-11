@@ -79,20 +79,12 @@ const Home = ({ params }) => {
   // }
 
   return (
-    <div className="app">
+    <div id="search">
       <div className="container">
         <div className="row">
           <SearchField domain={domain} onSearch={search} onClear={clear}></SearchField>
         </div>
       </div>
-      {/* <div className="input">
-        <input id="domain" value={domain} onKeyUp={search} placeholder="Search for brand domain (example.com)" />
-        {domain !== '' && (
-          <div className="close" onClick={clear}>
-            <i className="las la-times"></i>
-          </div>
-        )}
-      </div> */}
 
       {result.length > 0 ? (
         <div className="container search-result">
@@ -146,10 +138,6 @@ const Home = ({ params }) => {
           <p>Type the domain to search for logos to use in your design.</p>
         </div>
       )}
-
-      <a className="clearbit" target="_blank" href="https://clearbit.com">
-        Logos provided by Clearbit
-      </a>
     </div>
   )
 }

@@ -6,6 +6,7 @@
   height: 140px;
   background-color: var(--figma-color-bg-hover);
   width: 100%;
+  border: solid 1px var(--figma-color-border);
 }
 
 .color-tile .label {
