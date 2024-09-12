@@ -11,32 +11,21 @@ export function AppStateProvider({ children }) {
 
   // Simulating data fetching on app start
   effect(() => {
-    window.onmessage = (event) => {
+    const onMessage = (event) => {
       const msg = event.data.pluginMessage
       if (msg.type === 'got-config') {
         console.log('got-config', msg)
         data.value = msg.config
       }
     }
+    window.addEventListener('message', onMessage)
+
     parent.postMessage({ pluginMessage: { type: 'get-config' } }, '*')
+
+    return () => {
+      window.removeEventListener('message', onMessage)
+    }
   })
-
-  // async function fetchData() {
-  //   try {
-  //     loading.value = true
-  //     // Simulating API call
-  //     const response = await new Promise((resolve) => setTimeout(() => resolve({ message: 'Hello from AppState!' }), 1000))
-  //     data.value = response
-  //   } catch (err) {
-  //     error.value = err.message
-  //   } finally {
-  //     loading.value = false
-  //   }
-  // }
-
-  // const refreshData = () => {
-  //   fetchData()
-  // }
 
   return <AppStateContext.Provider value={{ data, loading, error }}>{children}</AppStateContext.Provider>
 }

@@ -6,7 +6,7 @@ import './more.css'
 const More = () => {
   const { data } = useAppState()
   return (
-    <div className="more container">
+    <div id="more" className="more container">
       <Accordion title="General settings">
         <div className="col-sm-12 row">
           <div className="col-sm-4">
@@ -68,6 +68,17 @@ const More = () => {
               }}
             />
           </div>
+        </div>
+
+        <div className="col-sm-12 row">
+          <button
+            className="primary small"
+            onClick={() => {
+              parent.postMessage({ pluginMessage: { type: 'save-config', config: { format: 'png', size: 128, greyscale: false } } }, '*')
+            }}
+          >
+            Reset
+          </button>
         </div>
       </Accordion>
     </div>

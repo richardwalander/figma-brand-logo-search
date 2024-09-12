@@ -15,5 +15,8 @@
     gap: 10px;
     text-decoration: none;
     color: var(--figma-color-text);
+    span {
+      font-size: 12px;
+    }
   }
 }

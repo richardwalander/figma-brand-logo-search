@@ -19,7 +19,8 @@ const Details = () => {
 
   useEffect(() => {
     parent.postMessage({ pluginMessage: { type: 'get-details', domain } }, '*')
-    window.onmessage = async (event) => {
+
+    const onMessage = async (event) => {
       const msg = event.data.pluginMessage
       switch (msg.type) {
         case 'got-details':
@@ -44,6 +45,12 @@ const Details = () => {
         default:
           break
       }
+    }
+
+    window.addEventListener('message', onMessage)
+
+    return () => {
+      window.removeEventListener('message', onMessage)
     }
   }, [])
 

@@ -25,7 +25,7 @@ const Home = ({ params }) => {
       mixpanel.track('search_domain', { value: q })
     }
     document.getElementById('domain').focus()
-    window.onmessage = (event) => {
+    const onMessage = (event) => {
       const msg = event.data.pluginMessage
       switch (msg.type) {
         case 'search-result':
@@ -34,6 +34,11 @@ const Home = ({ params }) => {
         default:
           break
       }
+    }
+    window.addEventListener('message', onMessage)
+
+    return () => {
+      window.removeEventListener('message', onMessage)
     }
   }, [])
 

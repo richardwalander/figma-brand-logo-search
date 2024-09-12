@@ -1,15 +1,21 @@
-.more .input {
-  width: 99%;
-  text-align: left;
-  height: 32px;
-  line-height: 32px;
-}
+#more {
+  .input {
+    width: 99%;
+    text-align: left;
+    height: 32px;
+    line-height: 32px;
+  }
 
-.more .row {
-  align-items: center;
-  padding-bottom: 10px;
-}
+  .row {
+    align-items: center;
+    padding-bottom: 10px;
+  }
 
-.more .label {
-  font-size: 12px;
+  .label {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
 }
