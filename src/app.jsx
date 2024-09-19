@@ -10,6 +10,7 @@ import ExploreCategory from './explore/explore-cat.jsx'
 import Details from './details/details.jsx'
 import { AppStateProvider } from './context/appstate.jsx'
 import LogoDevBar from './components/bars/logodev.jsx'
+import NewsDialog from './components/dialogs/newsdialog.jsx'
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             </Route>
           </Switch>
           <LogoDevBar></LogoDevBar>
+          <NewsDialog></NewsDialog>
         </div>
       </Router>
     </AppStateProvider>

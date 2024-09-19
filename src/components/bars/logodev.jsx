@@ -3,15 +3,6 @@ import './logodev.css'
 
 const LogoDevBar = () => (
   <div id="promobar" className="rounded shadowed">
-    {/* <a
-      href="https://logo.dev"
-      className="link"
-      onClick={(e) => {
-        e.preventDefault()
-        const url = e.currentTarget.getAttribute('href')
-        parent.postMessage({ pluginMessage: { type: 'open-url', url } }, '*')
-      }}
-    > */}
     <a href="https://logo.dev" className="link" target="_blank">
       <span>Logos supplied with 💜 by </span>
       <svg width="65.76" xmlns="http://www.w3.org/2000/svg" height="18" fill="none">
