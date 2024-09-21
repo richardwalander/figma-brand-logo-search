@@ -38,7 +38,7 @@ const More = () => {
             <span className="label">Default size (px)</span>
           </div>
           <div className="col-sm-8">
-            <input
+            {/* <input
               type="text"
               className="input"
               value={data.value?.size}
@@ -47,7 +47,48 @@ const More = () => {
                 const { format, greyscale } = data.value
                 parent.postMessage({ pluginMessage: { type: 'save-config', config: { format, size, greyscale } } }, '*')
               }}
-            />
+            /> */}
+            <select
+              className="input"
+              name="size"
+              id="size"
+              onChange={(e) => {
+                const size = e.target.value
+                const { format, greyscale } = data.value
+                parent.postMessage({ pluginMessage: { type: 'save-config', config: { format, size, greyscale } } }, '*')
+              }}
+            >
+              <option value="16" selected={data.value?.size === '16'}>
+                16px
+              </option>
+              <option value="24" selected={data.value?.size === '24'}>
+                24px
+              </option>
+              <option value="32" selected={data.value?.size === '32'}>
+                32px
+              </option>
+              <option value="48" selected={data.value?.size === '48'}>
+                48px
+              </option>
+              <option value="56" selected={data.value?.size === '56'}>
+                56px
+              </option>
+              <option value="64" selected={data.value?.size === '64'}>
+                64px
+              </option>
+              <option value="72" selected={data.value?.size === '72'}>
+                72px
+              </option>
+              <option value="96" selected={data.value?.size === '96'}>
+                96px
+              </option>
+              <option value="128" selected={data.value?.size === '128'}>
+                128px
+              </option>
+              <option value="256" selected={data.value?.size === '256'}>
+                256px
+              </option>
+            </select>
           </div>
         </div>
 
