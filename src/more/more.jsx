@@ -2,6 +2,7 @@ import { h } from 'preact'
 import Accordion from '../components/accordion/accordion'
 import { useAppState } from '../context/appstate'
 import './more.css'
+import * as mixpanel from 'mixpanel-figma'
 
 const More = () => {
   const { data } = useAppState()
@@ -21,6 +22,7 @@ const More = () => {
                 const format = e.target.value
                 const { size, greyscale } = data.value
                 parent.postMessage({ pluginMessage: { type: 'save-config', config: { format, size, greyscale } } }, '*')
+                mixpanel.track('change_setting', { setting: 'format' })
               }}
             >
               <option value="png" selected={data.value?.format === 'png'}>
@@ -56,6 +58,7 @@ const More = () => {
                 const size = e.target.value
                 const { format, greyscale } = data.value
                 parent.postMessage({ pluginMessage: { type: 'save-config', config: { format, size, greyscale } } }, '*')
+                mixpanel.track('change_setting', { setting: 'size' })
               }}
             >
               <option value="16" selected={data.value?.size === '16'}>
@@ -106,6 +109,7 @@ const More = () => {
                 console.log('change greyscalse', e.target.checked)
                 const { size, format } = data.value
                 parent.postMessage({ pluginMessage: { type: 'save-config', config: { format, size, greyscale } } }, '*')
+                mixpanel.track('change_setting', { setting: 'greyscale' })
               }}
             />
           </div>
@@ -115,7 +119,7 @@ const More = () => {
           <button
             className="primary small"
             onClick={() => {
-              parent.postMessage({ pluginMessage: { type: 'save-config', config: { format: 'png', size: 128, greyscale: false } } }, '*')
+              parent.postMessage({ pluginMessage: { type: 'save-config', config: { format: 'png', size: '128', greyscale: false } } }, '*')
             }}
           >
             Reset

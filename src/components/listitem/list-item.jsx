@@ -16,7 +16,7 @@ const ListItem = ({ logo, name, domain }) => {
       onClick={() => {
         parent.postMessage({ pluginMessage: { type: 'create-logo', domain, format, greyscale, size } }, '*')
         window.sa_event('insert_logo', { domain })
-        mixpanel.track('insert_logo', { domain })
+        mixpanel.track('insert_logo', { domain, location: 'list' })
       }}
     >
       <div className="section row">

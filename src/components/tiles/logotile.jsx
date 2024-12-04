@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import './logotile.css'
+import * as mixpanel from 'mixpanel-figma'
 
 const token = import.meta.env.VITE_LOGO_DEV_API_TOKEN
 
