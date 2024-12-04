@@ -1,18 +1,19 @@
-.logo {
+.list-item .logo {
   height: 50px;
   width: 50px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #eee;
+  border: solid 1px var(--card-border-color);
 }
-.card {
+.list-item.card {
   cursor: pointer;
 }
-.card:hover {
+.list-item.card:hover {
   border: solid 1px var(--input-focus-color);
 }
-.name {
+.list-item .name {
   display: block;
   height: 20px; /* Adjust this value as needed */
   line-height: 20px; /* Match this with the height for vertical centering */
@@ -20,4 +21,20 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%; /* Adjust as needed */
+}
+.list-item .section {
+  align-items: center;
+}
+.list-item .last {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.list-item .more-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--figma-color-bg-hover);
+  cursor: pointer;
 }

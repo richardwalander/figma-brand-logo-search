@@ -1,0 +1,39 @@
+#search {
+  .search-result {
+    max-height: var(--container-max-height);
+    overflow-y: scroll;
+    padding-bottom: var(--container-padding-bottom);
+  }
+  .bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: solid 1px #eee;
+    text-align: right;
+  }
+
+  .empty {
+    text-align: center;
+  }
+  .empty p,
+  .empty h3 {
+    color: #999;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .icon {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 20%;
+  }
+  .svg {
+    margin-top: 20%;
+  }
+  .icon .la-search {
+    font-size: 64px;
+    color: #999;
+  }
+}

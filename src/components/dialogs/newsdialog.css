@@ -1,0 +1,16 @@
+#newsdialog {
+  max-height: 90vh;
+  div.section {
+    padding: 20px;
+  }
+  p.icon {
+    font-size: 80px;
+    text-align: center;
+  }
+  p {
+    font-size: 12px;
+    strong {
+      font-size: 14px;
+    }
+  }
+}

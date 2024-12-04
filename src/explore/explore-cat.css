@@ -1,0 +1,11 @@
+#explore-cat {
+  .brands {
+    max-height: calc(var(--container-max-height) - 10px);
+    overflow-y: scroll;
+    padding-bottom: var(--container-padding-bottom);
+  }
+  .header {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+}

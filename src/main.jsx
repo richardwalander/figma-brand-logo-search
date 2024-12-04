@@ -1,7 +1,7 @@
 import { render } from 'preact'
 import App from './app.jsx'
 import * as mixpanel from 'mixpanel-figma'
-// import './index.css'
+// import './app.css'
 
 const token = import.meta.env.VITE_MIXPANEL_PROJECT_TOKEN
 

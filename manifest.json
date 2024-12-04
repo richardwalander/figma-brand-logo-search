@@ -6,10 +6,15 @@
   "ui": "dist/index.html",
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
+  "relaunchButtons": [
+    { "command": "edit", "name": "Replace Logo" },
+    { "command": "open", "name": "Open LogoFetch", "multipleSelection": true }
+  ],
   "networkAccess": {
     "allowedDomains": [
       "https://maxst.icons8.com",
       "https://cdnjs.cloudflare.com",
+      "https://cdn.jsdelivr.net",
       "https://*.clearbit.com",
       "https://*.logo.dev",
       "https://api-js.mixpanel.com",

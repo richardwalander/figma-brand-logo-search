@@ -1,0 +1,21 @@
+#more {
+  .input {
+    width: 99%;
+    text-align: left;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .row {
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
